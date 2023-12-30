@@ -2,13 +2,11 @@
 
 Backend based on FastAPI framework for interactions parents with kindergarten's staff
 
-## Build
+## Build and Run
 
-`docker compose build`
+`docker compose up --build`
 
-## Runing
-
-`docker compose up`
+Use `-d` for run in detach mode
 
 ## Api schema
 
