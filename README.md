@@ -19,4 +19,5 @@ Backend based on FastAPI framework for interactions parents with kindergarten's 
 ## Mock's for developming and testing
 
 [https://{server_host}:8001/docs](http://localhost:8001/docs) - sms mock
+
 [https://{server_host}:1080/docs](http://localhost:1080/docs) - email mock
