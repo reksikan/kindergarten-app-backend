@@ -4,7 +4,7 @@ volumes:
   pg_kindergarten_data_volume:
 
 services:
-  indigo_back:
+  kindergarten_back:
     restart: on-failure:3
     build: ./server
     ports:
