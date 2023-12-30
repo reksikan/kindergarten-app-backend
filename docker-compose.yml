@@ -1,0 +1,44 @@
+version: "3.9"
+
+volumes:
+  pg_indigo_data_volume:
+
+services:
+  indigo_back:
+    restart: on-failure:3
+    build: ./server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server/alembic:/app/alembic
+      - ./server/src:/app/src
+      - ./server/files:/app/files
+    env_file:
+      - .env
+    depends_on:
+      - indigo_postgres
+
+  indigo_postgres:
+    restart: always
+    image: postgres:14.5
+    container_name: indigo_postgres
+    ports:
+      - '5432:5432'
+    env_file:
+      - .env
+    volumes:
+      - pg_indigo_data_volume:/var/lib/postgresql/data
+
+  phonemock:
+    restart: on-failure:3
+    build:
+      context: ./phonemock
+      dockerfile: ./Dockerfile
+    ports:
+      - '8001:8001'
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - '1080:1080'
+    command: [ 'mailcatcher', '--ip', '0.0.0.0', '--http-port', '1080', '--no-quit', '--foreground', ]
