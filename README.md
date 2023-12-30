@@ -14,8 +14,13 @@ Use `-d` for run in detach mode
 [https://{server_host}/docs](http://localhost:8000/docs)
 
 
-## Mock's for developming and testing
+## Developming
+### Mock's for testing
 
 [https://{server_host}:8001/docs](http://localhost:8001/docs) - sms mock
 
 [https://{server_host}:1080/docs](http://localhost:1080/docs) - email mock
+
+### Migration generating
+
+`docker exec kindergarten_back alembic revision --autogenerate -m {migration message}`  
