@@ -1,7 +1,7 @@
 version: "3.9"
 
 volumes:
-  pg_indigo_data_volume:
+  pg_kindergarten_data_volume:
 
 services:
   indigo_back:
@@ -16,12 +16,12 @@ services:
     env_file:
       - .env
     depends_on:
-      - indigo_postgres
+      - kindergarten_postgres
 
-  indigo_postgres:
+  kindergarten_postgres:
     restart: always
     image: postgres:14.5
-    container_name: indigo_postgres
+    container_name: kindergarten_postgres
     ports:
       - '5432:5432'
     env_file:
